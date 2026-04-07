@@ -450,6 +450,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HazardSpawner
   easyPatterns:
   - {fileID: 544782181425201789, guid: f7d4fcc2a93dc4c84b901f8f9a37e57a, type: 3}
+  - {fileID: 544782181425201789, guid: b7864c9a1ba23414aac3d29597e76a39, type: 3}
+  - {fileID: 544782181425201789, guid: ec1b5a4d4216d4d76b9c183788be57ff, type: 3}
   mediumPatterns: []
   hardPatterns: []
   spawnX: 15
