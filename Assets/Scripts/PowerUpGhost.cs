@@ -13,7 +13,8 @@ public class GhostPowerup : MonoBehaviour
             SpriteRenderer sr = collision.GetComponent<SpriteRenderer>();
             if (sr != null)
             {
-                StartCoroutine(GhostEffect(sr));
+                // Runs through the GameManager since its always present in the world
+                GameManager.Instance.StartCoroutine(GhostEffect(sr));
             }
 
             Destroy(gameObject);
@@ -28,13 +29,6 @@ public class GhostPowerup : MonoBehaviour
         GameManager.Instance.isInvincible = true;
         GameManager.Instance.iFrameTimer = ghostDuration;
 
-        /* // Player falls through the floor when collier is enables further debugging required
-        // Disables the collider 
-        Collider2D playerCollider = GameManager.Instance.player.GetComponent<Collider2D>();
-        if (playerCollider != null) {
-            playerCollider.enabled = false;
-        } */
-
         // Sets translucent 
         Color ghostColor = originalColor;
         ghostColor.a = transparency;
@@ -45,13 +39,7 @@ public class GhostPowerup : MonoBehaviour
         {
             yield return null; // wait a frame
         }
-        Debug.Log("Ghost effect ended");
 
-        /* // Player falls through the floor when collier is enables further debugging required
-        // Re-enables the collider when invincibility ends
-        if (playerCollider != null) {
-            playerCollider.enabled = true;
-        } */
 
         // Turns player back to fully opaque
         sr.color = originalColor;
