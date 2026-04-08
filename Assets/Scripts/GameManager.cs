@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
     public UnityEvent onGameOver; // fires once when player dies
     public UnityEvent onReset;    // fires once when level restarts
 
-    private bool isInvincible = false; // true during i-frames, blocks damage
-    private float iFrameTimer = 0f;    // counts down i-frame duration
+    public bool isInvincible = false; // true during i-frames, blocks damage
+    public float iFrameTimer = 0f;    // counts down i-frame duration
 
     // initial values saved in Start so reset restores Inspector-tuned values
     private float initScrollSpeed;
