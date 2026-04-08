@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public float elapsedTime = 0f;       // how long this run has lasted
 
     public enum GamePhase { Intro, Playing, GameOver }
-    public GamePhase phase = GamePhase.Playing; // current state of the game
+    public GamePhase phase = GamePhase.Intro; // current state of the game
 
     // UnityEvent lets other scripts subscribe with AddListener to get called when something happens
     public UnityEvent onGameOver; // fires once when player dies
@@ -98,10 +98,10 @@ public class GameManager : MonoBehaviour
         // then MyMethod runs automatically at each game over
         onGameOver.Invoke();
 
-        ResetLevel(); // debug - instant restart. replace with death UI later
+        // ResetLevel(); No longer nescessary, UI has been added
     }
 
-    // called by restart button (Trey's UI (to be made)) to reset everything
+    // called by the restart button on the DeathScreen
     public void ResetLevel()
     {
         // find and destroy every hazard still in the scene
