@@ -935,9 +935,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a611d4289b143c39b413ade1954202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBehavior
-  hp: 1
   anim: {fileID: 0}
-  speed: 11
+  speed: 180
+  down: 20
   jp: {fileID: 1441817146}
   die: {fileID: 142062065}
 --- !u!1 &1129936232
