@@ -393,7 +393,7 @@ MonoBehaviour:
   playerStartPos: {x: 0, y: 0, z: 0}
   scrollSpeed: 5
   spawnInterval: 3
-  playerHP: 1
+  playerHP: 10
   hazardDamage: 1
   iFrameDuration: 0.5
   elapsedTime: 0
@@ -455,7 +455,11 @@ MonoBehaviour:
   - {fileID: 544782181425201789, guid: b7864c9a1ba23414aac3d29597e76a39, type: 3}
   - {fileID: 544782181425201789, guid: ec1b5a4d4216d4d76b9c183788be57ff, type: 3}
   - {fileID: 544782181425201789, guid: bc84b9870a3874ce2affe6250566c2e2, type: 3}
-  mediumPatterns: []
+  - {fileID: 544782181425201789, guid: c0f8a784e582443c991523b07ead9483, type: 3}
+  mediumPatterns:
+  - {fileID: 544782181425201789, guid: 51af8672caa324e45b1c101031f4e4e0, type: 3}
+  - {fileID: 544782181425201789, guid: baef7cbaa5a5945b9af8e4426cdede10, type: 3}
+  - {fileID: 544782181425201789, guid: 0087c5f085b3a4f7e90f7629db4b0d35, type: 3}
   hardPatterns: []
   spawnX: 15
   mediumThreshold: 30
