@@ -98,10 +98,9 @@ public class GameManager : MonoBehaviour
         // then MyMethod runs automatically at each game over
         onGameOver.Invoke();
 
-        // ResetLevel(); No longer nescessary, UI has been added
+        ResetLevel(); 
     }
 
-    // called by the restart button on the DeathScreen
     public void ResetLevel()
     {
         // find and destroy every hazard still in the scene
