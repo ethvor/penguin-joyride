@@ -24,5 +24,23 @@ public class PlayerCollision : MonoBehaviour
             //Destroy coin 
             Destroy(other.gameObject); 
         }
+        //collision with player and coin multiplier
+        if(other.gameObject.tag == "CoinMulti") {
+            CoinManager coinmanager = other.GetComponent<CoinManager>();
+            CoinMultiplier multiCoin = other.GetComponent<CoinMultiplier>(); 
+
+            if(coinmanager != null) {
+                coinmanager.ActivateMultiplier(multiCoin.multiplier, multiCoin.duration); 
+            }
+            //Play audio
+            float volume = 1; 
+            AudioSource.PlayClipAtPoint(multiCoin.multiplierAudio, other.transform.position, volume); 
+            
+            
+            //Destroy multiplier coin 
+            Destroy(other.gameObject); 
+        }
+
     }
 }
+
