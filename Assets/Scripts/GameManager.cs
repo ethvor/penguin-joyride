@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,12 +18,14 @@ public class GameManager : MonoBehaviour
 
     public float elapsedTime = 0f;       // how long this run has lasted
 
-    public enum GamePhase { Intro, Playing, GameOver }
-    public GamePhase phase = GamePhase.Intro; // current state of the game
+    public enum GamePhase { Playing, GameOver, Paused }
+    public GamePhase phase = GamePhase.Playing; // current state of the game
 
     // UnityEvent lets other scripts subscribe with AddListener to get called when something happens
     public UnityEvent onGameOver; // fires once when player dies
     public UnityEvent onReset;    // fires once when level restarts
+    public UnityEvent onPause;    // fires when the game is paused
+    public UnityEvent onResume;   // fires when the game is unpaused
 
     public bool isInvincible = false; // true during i-frames, blocks damage
     public float iFrameTimer = 0f;    // counts down i-frame duration
@@ -31,6 +34,9 @@ public class GameManager : MonoBehaviour
     private float initScrollSpeed;
     private float initSpawnInterval;
     private int initPlayerHP;
+
+    // saved during pause so resume can restore whatever speed the ramp was at
+    private float prePauseScrollSpeed;
 
     void Awake() // runs before Start — sets up the singleton
     {
@@ -97,8 +103,7 @@ public class GameManager : MonoBehaviour
         //   GameManager.Instance.onGameOver.AddListener(MyMethod);
         // then MyMethod runs automatically at each game over
         onGameOver.Invoke();
-
-        ResetLevel(); 
+        // dont reset here — wait for the restart button to call ResetLevel
     }
 
     public void ResetLevel()
@@ -126,5 +131,31 @@ public class GameManager : MonoBehaviour
         }
 
         onReset.Invoke(); // notify all subscribers to reset their own stuff
+    }
+
+    public void Pause()
+    {
+        if (phase != GamePhase.Playing) return; //only pause during play
+
+        prePauseScrollSpeed = scrollSpeed;
+        scrollSpeed = 0f;        //freeze scrolling
+        phase = GamePhase.Paused;
+        onPause.Invoke();
+    }
+
+    public void Resume()
+    {
+        if (phase != GamePhase.Paused) return;
+
+        scrollSpeed = prePauseScrollSpeed; //put the ramped speed back
+        phase = GamePhase.Playing;
+        onResume.Invoke();
+    }
+
+    public void ReturnToMainMenu()
+    {
+        // Single mode replaces the current scene — destroys everything in scroll-level
+        // so no manual cleanup needed, fresh game state on next Start press
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 }
