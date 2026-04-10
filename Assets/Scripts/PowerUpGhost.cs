@@ -5,6 +5,7 @@ public class GhostPowerup : MonoBehaviour
 {
     public float ghostDuration = 5f;    // Duration of invincibility
     public float transparency = 0.4f;   // How opaque is the player sprite
+    public AudioClip powerupAudio; 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,6 +17,10 @@ public class GhostPowerup : MonoBehaviour
                 // Runs through the GameManager since its always present in the world
                 GameManager.Instance.StartCoroutine(GhostEffect(sr));
             }
+
+            //audio
+            float volume = 1; 
+            AudioSource.PlayClipAtPoint(powerupAudio, transform.position, volume); 
 
             Destroy(gameObject);
         }

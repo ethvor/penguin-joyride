@@ -7,6 +7,8 @@ TagManager:
   - Hazard
   - roof
   - floor
+  - Coin
+  - CoinMulti
   layers:
   - Default
   - TransparentFX

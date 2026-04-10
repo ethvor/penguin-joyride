@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6819489646394481876}
   - component: {fileID: 803749279081646551}
-  - component: {fileID: -5933131558394985148}
   - component: {fileID: -4380093653036642933}
+  - component: {fileID: 5016853861360246841}
+  - component: {fileID: 6017191749682183314}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -28,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 2863660319845242448}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.8406, y: -0.0528, z: 0}
-  m_LocalScale: {x: 0.50469965, y: 0.47665203, z: 1}
+  m_LocalPosition: {x: -4.8663, y: -0.0542, z: 0}
+  m_LocalScale: {x: 0.5389183, y: 0.4728388, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -7211549306533664903, guid: d7dd590953f824515956e47e2faf9fb8, type: 3}
   m_Color: {r: 0.9433962, g: 0.85802287, b: 0.004449993, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,8 +94,44 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!58 &-5933131558394985148
-CircleCollider2D:
+--- !u!114 &-4380093653036642933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2863660319845242448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bcc5726b6cb4ed183e3dace521eb5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinB
+  coinValue: 1
+  coinAudio: {fileID: 8300000, guid: 62f8565e9a59a4c4db8781cd88517d36, type: 3}
+--- !u!95 &5016853861360246841
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2863660319845242448}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc6dcb79979864f8fab7f642a094b19c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &6017191749682183314
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -128,18 +165,31 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.50000006
---- !u!114 &-4380093653036642933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2863660319845242448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15bcc5726b6cb4ed183e3dace521eb5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoinB
-  coinValue: 1
-  coinAudio: {fileID: 8300000, guid: 62f8565e9a59a4c4db8781cd88517d36, type: 3}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 0.75}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.2186446, y: 0.29792428}
+      - {x: -0.3677271, y: 0.30866668}
+      - {x: -0.5812189, y: 0.1370606}
+      - {x: -0.58121896, y: -0.09660611}
+      - {x: -0.34365484, y: -0.25866672}
+      - {x: 0.21674934, y: -0.25351226}
+      - {x: 0.3748497, y: -0.14399129}
+      - {x: 0.4449359, y: -0.1403508}
+      - {x: 0.58121806, y: -0.25263637}
+      - {x: 0.57582587, y: -0.089586094}
+      - {x: 0.5312857, y: 0.017916638}
+      - {x: 0.5762249, y: 0.0729336}
+      - {x: 0.5762249, y: 0.0729336}
+      - {x: 0.5759278, y: 0.2827879}
+      - {x: 0.47073677, y: 0.21186112}
+      - {x: 0.3383637, y: 0.21218188}
+  m_UseDelaunayMesh: 1
