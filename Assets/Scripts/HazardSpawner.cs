@@ -32,7 +32,9 @@ public class HazardSpawner : MonoBehaviour
         GameObject pattern = PickPattern();
         if (pattern == null) return;
 
-        Vector3 spawnPos = new Vector3(spawnX, 0f, 0f);
+        // keep the prefab's own Y so patterns can be positioned vertically in the editor
+        float prefabY = pattern.transform.position.y;
+        Vector3 spawnPos = new Vector3(spawnX, prefabY, 0f);
         Instantiate(pattern, spawnPos, Quaternion.identity);
     }
 
