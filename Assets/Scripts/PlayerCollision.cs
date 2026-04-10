@@ -3,7 +3,6 @@ using TMPro;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public TMP_Text coinText; 
     void OnTriggerEnter2D(Collider2D other) // on collision with 'trigger' enabled collider
     {
         // anything inside a hazard pattern kills UNLESS its a coin or powerup
@@ -20,7 +19,7 @@ public class PlayerCollision : MonoBehaviour
             CoinManager coinmanager = other.GetComponent<CoinManager>();
             CoinBehaviour coin = other.GetComponent<CoinBehaviour>(); 
 
-            if(coinmanager != null) {
+            if(coinmanager != null && coin != null) {
                 coinmanager.AddCoins(coin.coinValue); 
             }
             //Play audio
@@ -35,7 +34,7 @@ public class PlayerCollision : MonoBehaviour
             CoinManager coinmanager = other.GetComponent<CoinManager>();
             CoinMultiplier multiCoin = other.GetComponent<CoinMultiplier>(); 
 
-            if(coinmanager != null) {
+            if(coinmanager != null && multiCoin != null) {
                 coinmanager.ActivateMultiplier(multiCoin.multiplier, multiCoin.duration); 
             }
             //Play audio
@@ -47,11 +46,6 @@ public class PlayerCollision : MonoBehaviour
             Destroy(other.gameObject); 
         }
 
-    }
-    public void updateScore() {
-    CoinManager coinmanager = GetComponent<CoinManager>();
-    if(coinText != null) {
-            coinText.SetText("Coins: " + coinmanager.totalCoins); }
     }
 }
 
