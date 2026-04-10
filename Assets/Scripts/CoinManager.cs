@@ -5,15 +5,15 @@ public class CoinManager : MonoBehaviour
 {
     public int totalCoins; 
     private int currMultiplier;
-    private float multiplierTimer; 
-    public TMP_Text scoreText;  
+    private float multiplierTimer;
+    public TMP_Text coinText; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         totalCoins = 0; 
         currMultiplier = 1; 
         multiplierTimer = 0f; 
-        updateScore(); 
+        //updateScore(); 
     }
 
     // Update is called once per frame
@@ -25,9 +25,11 @@ public class CoinManager : MonoBehaviour
                 currMultiplier = 1; 
             }
         }
+        updateScore(); 
         
     }
     public void AddCoins(int amount) {
+        Debug.Log($"AddCoins called! Amount: {amount}, Multiplier: {currMultiplier}");
         totalCoins += amount * currMultiplier;
         updateScore(); 
     }
@@ -36,9 +38,8 @@ public class CoinManager : MonoBehaviour
         multiplierTimer = duration; 
     }
     public void updateScore() {
-        if(scoreText != null) {
-            scoreText.SetText("Coins: " + totalCoins); 
-        }
+    if(coinText != null) {
+            coinText.SetText("Coins: " + totalCoins); }
     }
 
 }
