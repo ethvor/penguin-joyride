@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6178719480772901324}
   - component: {fileID: 7204751178418844624}
   - component: {fileID: 1270714814208334709}
+  - component: {fileID: 2686827814440786866}
   m_Layer: 0
   m_Name: CoinMultiplier
   m_TagString: Untagged
@@ -105,6 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3494f41e6a2046079805c50b2f46063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinMulti
+  duration: 10
+  multiplier: 2
+  powerupSource: {fileID: 1270714814208334709}
 --- !u!82 &1270714814208334709
 AudioSource:
   m_ObjectHideFlags: 0
@@ -202,3 +206,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &2686827814440786866
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8179236753384905280}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5

@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 public class CoinBehaviour : MonoBehaviour
 {
     private int coinValue = 1;
-    private AudioSource coinAudio; 
+    public AudioSource coinAudio; 
+    public AudioClip coinClip;
     void Start() {
         coinAudio = GetComponent<AudioSource>(); 
     }
@@ -15,9 +16,9 @@ public class CoinBehaviour : MonoBehaviour
             CoinManager coinmanager = other.GetComponent<CoinManager>(); 
             if(coinmanager != null) {
                 coinmanager.AddCoins(coinValue); 
-                //Play audio
-            coinAudio.Play(); 
             }
+            //Play audio
+            coinAudio.PlayOneShot(coinClip);
             
             //Destroy coin 
             Destroy(gameObject); 

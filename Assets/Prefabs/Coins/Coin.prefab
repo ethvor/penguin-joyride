@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6819489646394481876}
   - component: {fileID: 803749279081646551}
   - component: {fileID: -5933131558394985148}
-  - component: {fileID: 410948367161931465}
   - component: {fileID: -4380093653036642933}
+  - component: {fileID: -2189499622274852942}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -130,7 +130,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.50000006
---- !u!82 &410948367161931465
+--- !u!114 &-4380093653036642933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2863660319845242448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bcc5726b6cb4ed183e3dace521eb5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinB
+  coinAudio: {fileID: -2189499622274852942}
+  coinClip: {fileID: 8300000, guid: 62f8565e9a59a4c4db8781cd88517d36, type: 3}
+--- !u!82 &-2189499622274852942
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,16 +241,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-4380093653036642933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2863660319845242448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15bcc5726b6cb4ed183e3dace521eb5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoinB
-  coinAudio: {fileID: 410948367161931465}
