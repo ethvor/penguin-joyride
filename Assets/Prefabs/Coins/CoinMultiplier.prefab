@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 693650323175951279}
   - component: {fileID: 6178719480772901324}
   - component: {fileID: 7204751178418844624}
-  - component: {fileID: 2686827814440786866}
+  - component: {fileID: 2495975389385182871}
+  - component: {fileID: 6493757334216986491}
   m_Layer: 0
   m_Name: CoinMultiplier
   m_TagString: CoinMulti
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -7211549306533664903, guid: d7dd590953f824515956e47e2faf9fb8, type: 3}
   m_Color: {r: 1, g: 0.73720914, b: 0.23113209, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,8 +109,30 @@ MonoBehaviour:
   duration: 10
   multiplier: 2
   multiplierAudio: {fileID: 8300000, guid: dffbf286708474640ace221bf9bb73c3, type: 3}
---- !u!58 &2686827814440786866
-CircleCollider2D:
+--- !u!95 &2495975389385182871
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8179236753384905280}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc6dcb79979864f8fab7f642a094b19c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &6493757334216986491
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -143,4 +166,32 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 0.75}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.21345937, y: 0.29691586}
+      - {x: -0.37620366, y: 0.3042593}
+      - {x: -0.57925934, y: 0.13826388}
+      - {x: -0.5704166, y: -0.10425928}
+      - {x: -0.36430556, y: -0.25425932}
+      - {x: 0.21545136, y: -0.2524742}
+      - {x: 0.40107572, y: -0.11596736}
+      - {x: 0.5085185, y: -0.21446766}
+      - {x: 0.57920754, y: -0.20618786}
+      - {x: 0.5783642, y: -0.05303675}
+      - {x: 0.5329882, y: -0.031240888}
+      - {x: 0.53170675, y: 0.08818215}
+      - {x: 0.5729306, y: 0.093790114}
+      - {x: 0.5836806, y: 0.2454167}
+      - {x: 0.47800064, y: 0.25679597}
+      - {x: 0.4570024, y: 0.21138194}
+      - {x: 0.3377779, y: 0.2114121}
+  m_UseDelaunayMesh: 1
