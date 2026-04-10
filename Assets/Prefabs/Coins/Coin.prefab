@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4380093653036642933}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,8 +141,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: 62f8565e9a59a4c4db8781cd88517d36, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -239,3 +239,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bcc5726b6cb4ed183e3dace521eb5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinB
+  coinAudio: {fileID: 410948367161931465}
