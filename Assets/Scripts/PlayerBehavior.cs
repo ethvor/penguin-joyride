@@ -43,7 +43,9 @@ public class PlayerBehavior : MonoBehaviour
                 if (first) {
                     rev.Play();
                 }
-                bubble.Play();
+                if(!rev.isPlaying){
+                    bubble.Play();
+                }
                 first = false;
                 anim.SetTrigger("fly");
                 jp.Play();
@@ -51,11 +53,14 @@ public class PlayerBehavior : MonoBehaviour
 
             if (Keyboard.current.downArrowKey.wasPressedThisFrame || Keyboard.current.shiftKey.wasPressedThisFrame)
             {
+                rev.Stop();
+                bubble.Stop();
                 anim.SetTrigger("fall");
             }
 
             if (Keyboard.current.upArrowKey.wasReleasedThisFrame || Keyboard.current.spaceKey.wasReleasedThisFrame)
             {
+                rev.Stop();
                 bubble.Stop();
                 anim.SetTrigger("fall");
                 rb.gravityScale = 0.5f;
@@ -77,6 +82,9 @@ public class PlayerBehavior : MonoBehaviour
         {
             if (Keyboard.current.upArrowKey.isPressed || Keyboard.current.spaceKey.isPressed)
             {
+                if(!rev.isPlaying && !bubble.isPlaying){
+                    bubble.Play();
+                }
                 rb.gravityScale = 0.0f;
                 rb.linearVelocity = new Vector2(0.0f, 0.0f);
                 rb.AddForceY(speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
