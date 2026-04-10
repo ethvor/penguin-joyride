@@ -8,6 +8,7 @@ public class PlayerBehavior : MonoBehaviour
     public float speed;
     //private int multiplier;
     public float down;
+    private bool dead;
     
     private Rigidbody2D rb;
     
@@ -18,60 +19,68 @@ public class PlayerBehavior : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        dead = false;
         //multiplier = 10;
         anim = GetComponent<Animator>();
         // subscribe to GameManager events
         GameManager.Instance.onGameOver.AddListener(dieVFX);
+        GameManager.Instance.onReset.AddListener(restart);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Keyboard.current.upArrowKey.wasPressedThisFrame|| Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (!dead)
         {
-            anim.SetTrigger("fly");
-            jp.Play();
-        }
-        
-        if(Keyboard.current.downArrowKey.wasPressedThisFrame|| Keyboard.current.shiftKey.wasPressedThisFrame)
-        {
-            anim.SetTrigger("fall");
-        }
-        
-        if(Keyboard.current.upArrowKey.wasReleasedThisFrame || Keyboard.current.spaceKey.wasReleasedThisFrame)
-        {
-            anim.SetTrigger("fall");
-            rb.gravityScale = 0.5f;
-            rb.linearVelocity = new Vector2(0.0f, 0.0f);
-            jp.Stop();
-        }
+            if (Keyboard.current.upArrowKey.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                anim.SetTrigger("fly");
+                jp.Play();
+            }
 
-        if(Keyboard.current.downArrowKey.wasReleasedThisFrame || Keyboard.current.shiftKey.wasReleasedThisFrame)
-        {
-            rb.gravityScale = 0.5f;
-            rb.linearVelocity = new Vector2(0.0f, 0.0f);
+            if (Keyboard.current.downArrowKey.wasPressedThisFrame || Keyboard.current.shiftKey.wasPressedThisFrame)
+            {
+                anim.SetTrigger("fall");
+            }
+
+            if (Keyboard.current.upArrowKey.wasReleasedThisFrame || Keyboard.current.spaceKey.wasReleasedThisFrame)
+            {
+                anim.SetTrigger("fall");
+                rb.gravityScale = 0.5f;
+                rb.linearVelocity = new Vector2(0.0f, 0.0f);
+                jp.Stop();
+            }
+
+            if (Keyboard.current.downArrowKey.wasReleasedThisFrame || Keyboard.current.shiftKey.wasReleasedThisFrame)
+            {
+                rb.gravityScale = 0.5f;
+                rb.linearVelocity = new Vector2(0.0f, 0.0f);
+            }
         }
     }
 
     public void FixedUpdate()
     {
-        if(Keyboard.current.upArrowKey.isPressed || Keyboard.current.spaceKey.isPressed)
+        if (!dead)
         {
-            rb.gravityScale = 0.0f;
-            rb.linearVelocity = new Vector2(0.0f, 0.0f);
-            rb.AddForceY(speed * Time.fixedDeltaTime,ForceMode2D.Impulse);
-        }
-        
-        if(Keyboard.current.downArrowKey.isPressed || Keyboard.current.shiftKey.isPressed)
-        {
-            rb.gravityScale = 0.0f;
-            rb.AddForceY(-down * Time.fixedDeltaTime,ForceMode2D.Impulse);
+            if (Keyboard.current.upArrowKey.isPressed || Keyboard.current.spaceKey.isPressed)
+            {
+                rb.gravityScale = 0.0f;
+                rb.linearVelocity = new Vector2(0.0f, 0.0f);
+                rb.AddForceY(speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
+            }
+
+            if (Keyboard.current.downArrowKey.isPressed || Keyboard.current.shiftKey.isPressed)
+            {
+                rb.gravityScale = 0.0f;
+                rb.AddForceY(-down * Time.fixedDeltaTime, ForceMode2D.Impulse);
+            }
         }
     }
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("floor"))
+        if (other.gameObject.CompareTag("floor") && !dead)
         {
             anim.SetTrigger("run");
         }
@@ -79,6 +88,17 @@ public class PlayerBehavior : MonoBehaviour
 
     void dieVFX()
     {
+        dead = true;
         die.Play();
+        GetComponent<SpriteRenderer>().enabled = false;
+        anim.SetTrigger("fall");
+
+    }
+
+    void restart()
+    {
+        dead = false;
+        GetComponent<SpriteRenderer>().enabled = true;
+        rb.gravityScale = 0.5f;
     }
 }
