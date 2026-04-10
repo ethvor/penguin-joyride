@@ -13,7 +13,8 @@ public class CoinManager : MonoBehaviour
         totalCoins = 0; 
         currMultiplier = 1; 
         multiplierTimer = 0f; 
-        //updateScore(); 
+        GameManager.Instance.onReset.AddListener(restart);
+        updateScore();
     }
 
     // Update is called once per frame
@@ -24,8 +25,7 @@ public class CoinManager : MonoBehaviour
             if(multiplierTimer <= 0f) {
                 currMultiplier = 1; 
             }
-        }
-        updateScore(); 
+        } 
         
     }
     public void AddCoins(int amount) {
@@ -40,6 +40,12 @@ public class CoinManager : MonoBehaviour
     public void updateScore() {
     if(coinText != null) {
             coinText.SetText("Coins: " + totalCoins); }
+    }
+    void restart() {
+        totalCoins = 0; 
+        currMultiplier = 1; 
+        multiplierTimer = 0f;
+        updateScore();  
     }
 
 }
