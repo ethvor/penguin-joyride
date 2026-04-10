@@ -1,7 +1,9 @@
 using UnityEngine;
+using TMPro;
 
 public class PlayerCollision : MonoBehaviour
-{     
+{
+    public TMP_Text coinText; 
     void OnTriggerEnter2D(Collider2D other) // on collision with 'trigger' enabled collider
     {
         // anything inside a hazard pattern kills UNLESS its a coin or powerup
@@ -45,6 +47,11 @@ public class PlayerCollision : MonoBehaviour
             Destroy(other.gameObject); 
         }
 
+    }
+    public void updateScore() {
+    CoinManager coinmanager = GetComponent<CoinManager>();
+    if(coinText != null) {
+            coinText.SetText("Coins: " + coinmanager.totalCoins); }
     }
 }
 
