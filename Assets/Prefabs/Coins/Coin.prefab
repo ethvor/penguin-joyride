@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bcc5726b6cb4ed183e3dace521eb5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinB
-  coinAudio: {fileID: -2189499622274852942}
-  coinClip: {fileID: 8300000, guid: 62f8565e9a59a4c4db8781cd88517d36, type: 3}
+  coinValue: 1
+  coinAudio: {fileID: 8300000, guid: 62f8565e9a59a4c4db8781cd88517d36, type: 3}
 --- !u!82 &-2189499622274852942
 AudioSource:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2863660319845242448}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
