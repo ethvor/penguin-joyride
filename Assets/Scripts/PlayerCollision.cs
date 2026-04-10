@@ -4,9 +4,13 @@ public class PlayerCollision : MonoBehaviour
 {     
     void OnTriggerEnter2D(Collider2D other) // on collision with 'trigger' enabled collider
     {
-        if (other.transform.root.CompareTag("Hazard"))
+        // anything inside a hazard pattern kills UNLESS its a coin or powerup
+        if (other.transform.root.CompareTag("Hazard")
+            && !other.CompareTag("Coin")
+            && !other.CompareTag("CoinMulti")
+            && !other.CompareTag("Powerup"))
         {
-            GameManager.Instance.TakeDamage(GameManager.Instance.hazardDamage); //deal damage using game manager
+            GameManager.Instance.TakeDamage(GameManager.Instance.hazardDamage);
         }
 
         //collision with player and coin
