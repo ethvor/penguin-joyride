@@ -48,6 +48,14 @@ public class PlayerBehavior : MonoBehaviour
             rb.linearVelocity = new Vector2(0.0f, 0.0f);
             jp.Stop();
         }
+
+        if(Keyboard.current.downArrowKey.wasReleasedThisFrame || Keyboard.current.shiftKey.wasReleasedThisFrame)
+        {
+            rb.gravityScale = 0.5f;
+            rb.linearVelocity = new Vector2(0.0f, 0.0f);
+        }
+
+
         
         // if(Keyboard.current.downArrowKey.isPressed || Keyboard.current.shiftKey.isPressed)
         // {
@@ -76,14 +84,7 @@ public class PlayerBehavior : MonoBehaviour
             rb.AddForceY(-down * Time.fixedDeltaTime,ForceMode2D.Impulse);
         }
     }
-
-    public void onCollisionEnter2D(Collision other)
-    {
-        if (other.gameObject.tag.Equals("floor"))
-        {
-            rb.gravityScale = 0.5f;
-        }
-    }
+ 
 
     void dieVFX()
     {
