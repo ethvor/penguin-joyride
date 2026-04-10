@@ -10,6 +10,11 @@ public class PlayerBehavior : MonoBehaviour
     public float down;
     private bool dead;
     
+    private bool first;
+    public AudioSource boom;
+    public AudioSource rev;
+    public AudioSource bubble;
+    
     private Rigidbody2D rb;
     
     public ParticleSystem jp;
@@ -20,6 +25,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         dead = false;
+        first = true;
         //multiplier = 10;
         anim = GetComponent<Animator>();
         // subscribe to GameManager events
@@ -34,6 +40,11 @@ public class PlayerBehavior : MonoBehaviour
         {
             if (Keyboard.current.upArrowKey.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame)
             {
+                if (first) {
+                    rev.Play();
+                }
+                bubble.Play();
+                first = false;
                 anim.SetTrigger("fly");
                 jp.Play();
             }
@@ -45,6 +56,7 @@ public class PlayerBehavior : MonoBehaviour
 
             if (Keyboard.current.upArrowKey.wasReleasedThisFrame || Keyboard.current.spaceKey.wasReleasedThisFrame)
             {
+                bubble.Stop();
                 anim.SetTrigger("fall");
                 rb.gravityScale = 0.5f;
                 rb.linearVelocity = new Vector2(0.0f, 0.0f);
@@ -90,6 +102,10 @@ public class PlayerBehavior : MonoBehaviour
     {
         dead = true;
         die.Play();
+        boom.Play();
+        rev.Stop();
+        bubble.Stop();
+        jp.Stop();
         GetComponent<SpriteRenderer>().enabled = false;
         anim.SetTrigger("fall");
 
@@ -97,6 +113,7 @@ public class PlayerBehavior : MonoBehaviour
 
     void restart()
     {
+        first = true;
         dead = false;
         GetComponent<SpriteRenderer>().enabled = true;
         rb.gravityScale = 0.5f;
