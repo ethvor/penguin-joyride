@@ -29,7 +29,6 @@ public class CoinManager : MonoBehaviour
         
     }
     public void AddCoins(int amount) {
-        Debug.Log($"AddCoins called! Amount: {amount}, Multiplier: {currMultiplier}");
         totalCoins += amount * currMultiplier;
         updateScore(); 
     }
