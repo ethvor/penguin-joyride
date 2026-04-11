@@ -14,6 +14,7 @@ public class PlayerBehavior : MonoBehaviour
     public AudioSource boom;
     public AudioSource rev;
     public AudioSource bubble;
+    public float revDuration = 0.58f;
     
     private Rigidbody2D rb;
     
@@ -31,22 +32,28 @@ public class PlayerBehavior : MonoBehaviour
         // subscribe to GameManager events
         GameManager.Instance.onGameOver.AddListener(dieVFX);
         GameManager.Instance.onReset.AddListener(restart);
+
+        // play startup sound immediately on level load, cut before bubble tail
+        rev.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // cut rev at exact playback position instead of wall clock
+        if (rev.isPlaying && rev.time >= revDuration)
+        {
+            rev.Stop();
+        }
+
         if (!dead)
         {
             if (Keyboard.current.upArrowKey.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                if (first) {
-                    rev.Play();
-                }
-                if(!rev.isPlaying){
+                // only play bubble after startup rev finishes
+                if (!rev.isPlaying) {
                     bubble.Play();
                 }
-                first = false;
                 anim.SetTrigger("fly");
                 jp.Play();
             }
@@ -121,9 +128,15 @@ public class PlayerBehavior : MonoBehaviour
 
     void restart()
     {
-        first = true;
         dead = false;
+        rev.Stop();
+        bubble.Stop();
+        jp.Stop();
         GetComponent<SpriteRenderer>().enabled = true;
         rb.gravityScale = 0.5f;
+        anim.SetTrigger("run");
+
+        // replay startup rev like a fresh level load
+        rev.Play();
     }
 }

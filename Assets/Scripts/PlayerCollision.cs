@@ -3,7 +3,8 @@ using TMPro;
 
 public class PlayerCollision : MonoBehaviour
 {
-    private CoinManager coinmanager; 
+    public float coinVolume = 1f;
+    private CoinManager coinmanager;
     void Start() {
         coinmanager = GetComponent<CoinManager>(); 
     }
@@ -27,7 +28,7 @@ public class PlayerCollision : MonoBehaviour
                 coinmanager.AddCoins(coin.coinValue); 
             }
             //Play audio
-            float volume = 1; 
+            float volume = coinVolume;
             AudioSource.PlayClipAtPoint(coin.coinAudio, other.transform.position, volume); 
             
             //Destroy coin 
@@ -41,7 +42,7 @@ public class PlayerCollision : MonoBehaviour
                 coinmanager.ActivateMultiplier(multiCoin.multiplier, multiCoin.duration); 
             }
             //Play audio
-            float volume = 1; 
+            float volume = coinVolume;
             AudioSource.PlayClipAtPoint(multiCoin.multiplierAudio, other.transform.position, volume); 
             
             //Destroy multiplier coin 

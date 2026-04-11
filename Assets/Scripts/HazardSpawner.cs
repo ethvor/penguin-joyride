@@ -6,6 +6,8 @@ public class HazardSpawner : MonoBehaviour
     public GameObject[] mediumPatterns; //prefabs that unlock after mediumThreshold seconds
     public GameObject[] hardPatterns;   //prefabs that unlock after hardThreshold seconds
 
+    public GameObject[] testPatterns;    //drag patterns here to only spawn these, leave empty for normal pools
+
     public float spawnX = 15f;         //x position where patterns spawn (offscreen to right)
     private float spawnTimer = 0f;     //time between each spawn, resets on hazard spawned, not a param
 
@@ -38,8 +40,10 @@ public class HazardSpawner : MonoBehaviour
         Instantiate(pattern, spawnPos, Quaternion.identity);
     }
 
-    GameObject PickPattern() //pick an available category, then a pattern in that category.
+    GameObject PickPattern()
     {
+        if (testPatterns != null && testPatterns.Length > 0)
+            return testPatterns[Random.Range(0, testPatterns.Length)];
         float elapsed = GameManager.Instance.elapsedTime; //get game run time from manager
 
         // build a list of which pools are available based on elapsed time

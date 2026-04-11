@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 29399468}
   - component: {fileID: 29399471}
   - component: {fileID: 29399472}
+  - component: {fileID: 29399473}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -433,6 +434,103 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &29399473
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29399467}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: f7d9fbf431f24494ba1dd7399631c1f1, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &89192900
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -726, y: 411}
+  m_AnchoredPosition: {x: -759.26, y: 423}
   m_SizeDelta: {x: -1518.5195, y: -954.8459}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &119447221
@@ -1184,10 +1282,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1204,8 +1302,8 @@ Canvas:
   m_GameObject: {fileID: 663152621}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 29399469}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1216,7 +1314,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!1 &791824478
 GameObject:
@@ -1469,18 +1567,20 @@ MonoBehaviour:
   - {fileID: 544782181425201789, guid: e6b6cb7cc723b4bdeaffd63caf88544d, type: 3}
   - {fileID: 544782181425201789, guid: b85cc73ab4c2e47838f845df10ebae9b, type: 3}
   - {fileID: 544782181425201789, guid: 115b4a034e189470f84d5e1fba4a51ea, type: 3}
-  - {fileID: 544782181425201789, guid: 705674caf1d9c4f58bb66bebfe5e32c1, type: 3}
-  - {fileID: 544782181425201789, guid: bb30d24028aaa49609de87018097fd40, type: 3}
-  - {fileID: 544782181425201789, guid: 5bda63e25530e478d940327a2ce9ab14, type: 3}
-  - {fileID: 544782181425201789, guid: f50856075623c457b9a9b15f7be019f9, type: 3}
-  - {fileID: 544782181425201789, guid: a683a066b1835473687078a71b781fdf, type: 3}
   mediumPatterns:
   - {fileID: 544782181425201789, guid: 51af8672caa324e45b1c101031f4e4e0, type: 3}
   - {fileID: 544782181425201789, guid: baef7cbaa5a5945b9af8e4426cdede10, type: 3}
   - {fileID: 544782181425201789, guid: 0087c5f085b3a4f7e90f7629db4b0d35, type: 3}
+  - {fileID: 544782181425201789, guid: 5bda63e25530e478d940327a2ce9ab14, type: 3}
+  - {fileID: 544782181425201789, guid: f50856075623c457b9a9b15f7be019f9, type: 3}
+  - {fileID: 544782181425201789, guid: a683a066b1835473687078a71b781fdf, type: 3}
   hardPatterns:
   - {fileID: 544782181425201789, guid: 6bf420422007645b78a054ab3c51b4d8, type: 3}
   - {fileID: 544782181425201789, guid: f494214b1709249878cb3ded1db78311, type: 3}
+  - {fileID: 544782181425201789, guid: 705674caf1d9c4f58bb66bebfe5e32c1, type: 3}
+  - {fileID: 544782181425201789, guid: bb30d24028aaa49609de87018097fd40, type: 3}
+  - {fileID: 544782181425201789, guid: 56be9059e89f946f7bbaed5b15f02f9c, type: 3}
+  testPatterns: []
   spawnX: 15
   mediumThreshold: 30
   hardThreshold: 60
@@ -2183,11 +2283,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBehavior
   anim: {fileID: 0}
-  speed: 180
-  down: 20
+  speed: 200
+  down: 25
   boom: {fileID: 1038282308}
   rev: {fileID: 1038282307}
   bubble: {fileID: 1038282306}
+  revDuration: 0.7
   jp: {fileID: 1441817146}
   die: {fileID: 142062065}
 --- !u!114 &1038282304
@@ -2202,6 +2303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570d2a147cc444edf891b149d000c672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCollision
+  coinVolume: 1
 --- !u!95 &1038282305
 Animator:
   serializedVersion: 7
@@ -2237,7 +2339,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 59154e3ba788243ab9b8c10a4d4e2454, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3378,7 +3480,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00019837, y: 0.00054932}
+  m_AnchoredPosition: {x: 34.48, y: 0.000022888}
   m_SizeDelta: {x: 470.44, y: 162.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1882259456
